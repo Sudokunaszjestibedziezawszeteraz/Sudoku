@@ -1,10 +1,11 @@
 Wersja robocza
-Funkcjonalnoœæ projektu:
+FunkcjonalnoÅ›Ä‡ projektu:
 - generowanie planszy
-- przyciski typu "Nowa gra" itp.
-- sprawdzanie b³êdów
-- podpowiedzi nastêpnego ruchu
+- przyciski typu "Nowa gra", "wyjÅ›cie" itp.
+- sprawdzanie bÅ‚Ä™dÃ³w
+- podpowiedzi nastÄ™pnego ruchu
 - zerowanie planszy
-- pomoc (instrukcja jak graæ)
+- pomoc (instrukcja jak graÄ‡)
 - wpisywanie liczb
-- 
+- zmiana kolorystyki
+- komunikaty systemu
