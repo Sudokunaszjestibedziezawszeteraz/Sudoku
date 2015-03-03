@@ -3,7 +3,7 @@ Funkcjonalność projektu:
 - generowanie planszy
 - przyciski typu "Nowa gra", "wyjście" itp.
 - sprawdzanie błędów
-- podpowiedzi następnego ruchu
+- podpowiedzi gdzie może wystąpić jakaś liczba
 - zerowanie planszy
 - pomoc (instrukcja jak grać)
 - wpisywanie liczb
