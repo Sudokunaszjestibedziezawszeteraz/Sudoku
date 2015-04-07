@@ -16,7 +16,7 @@ public class Field extends JLabel {
         this.x = x;
         this.y = y;
         
-        setPreferredSize(new Dimension(50, 50));
+        setPreferredSize(new Dimension(40, 40));
         setBorder(BorderFactory.createLineBorder(Color.GRAY));
     }
 }

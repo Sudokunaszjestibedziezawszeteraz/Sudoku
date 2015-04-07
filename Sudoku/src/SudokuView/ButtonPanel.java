@@ -62,14 +62,14 @@ public class ButtonPanel extends JPanel {
         
         JPanel pnlNumbers = new JPanel();
         pnlNumbers.setLayout(new BoxLayout(pnlNumbers, BoxLayout.PAGE_AXIS));
-        pnlNumbers.setBorder(BorderFactory.createTitledBorder(" Cyfry "));
+        pnlNumbers.setBorder(BorderFactory.createTitledBorder(" Liczby "));
         pnlAlign.add(pnlNumbers);
 
         JPanel pnlNumbersHelp = new JPanel(new FlowLayout(FlowLayout.LEADING));
         pnlNumbers.add(pnlNumbersHelp);
 
 
-        cbHelp = new JCheckBox("Podpowiedź", false);
+        cbHelp = new JCheckBox("Podpowiedź", true);
         cbHelp.setFocusable(false);
         pnlNumbersHelp.add(cbHelp);
 
