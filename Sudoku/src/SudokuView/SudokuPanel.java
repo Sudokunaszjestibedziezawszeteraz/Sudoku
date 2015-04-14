@@ -2,12 +2,19 @@ package SudokuView;
 
 import java.awt.Color;
 import java.awt.GridLayout;
+import java.util.Observable;
+import java.util.Observer;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
+import SudokuController.SudokuController;
+import SudokuModel.Game;
+import SudokuModel.UpdateAction;
 
-public class SudokuPanel extends JPanel {
-    private Field[][] fields;       // Zbiór pól
-    private JPanel[][] panels;      // Panel z polami
+public class SudokuPanel extends JPanel implements Observer {
+    private static final Color COLOR_CANDIDATE = new Color(102, 153, 255);
+
+    private Field[][] fields;       // Array of fields.
+    private JPanel[][] panels;      // Panels holding the fields.
 
     public SudokuPanel() {
         super(new GridLayout(3, 3));
@@ -29,5 +36,56 @@ public class SudokuPanel extends JPanel {
             }
         }
     }
-}
 
+    public void update(Observable o, Object arg) {
+        switch ((UpdateAction)arg) {
+            case NEW_GAME:
+                setGame((Game)o);
+                break;
+            case CHECK:
+                setGameCheck((Game)o);
+                break;
+            case SELECTED_NUMBER:
+            case CANDIDATES:
+            case HELP:
+                setCandidates((Game)o);
+                break;
+        }
+    }
+
+    public void setGame(Game game) {
+        for (int y = 0; y < 9; y++) {
+            for (int x = 0; x < 9; x++) {
+                fields[y][x].setBackground(Color.WHITE);
+                fields[y][x].setNumber(game.getNumber(x, y), false);
+            }
+        }
+    }
+
+    private void setGameCheck(Game game) {
+        for (int y = 0; y < 9; y++) {
+            for (int x = 0; x < 9; x++) {
+                fields[y][x].setBackground(Color.WHITE);
+                if (fields[y][x].getForeground().equals(Color.BLUE))
+                    fields[y][x].setBackground(game.isCheckValid(x, y) ? Color.GREEN : Color.RED);
+            }
+        }
+    }
+
+    private void setCandidates(Game game) {
+        for (int y = 0; y < 9; y++) {
+            for (int x = 0; x < 9; x++) {
+                fields[y][x].setBackground(Color.WHITE);
+                if (game.isHelp() && game.isSelectedNumberCandidate(x, y))
+                    fields[y][x].setBackground(COLOR_CANDIDATE);
+            }
+        }
+    }
+
+    public void setController(SudokuController sudokuController) {
+        for (int y = 0; y < 3; y++) {
+            for (int x = 0; x < 3; x++)
+                panels[y][x].addMouseListener(sudokuController);
+        }
+    }
+}

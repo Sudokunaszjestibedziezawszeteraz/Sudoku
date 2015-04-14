@@ -2,6 +2,15 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/H:/SudokuNaszeJestIBedzieZawszeTeraz/src/SudokuController/SudokuController.java</file>
+            <file>file:/H:/SudokuNaszeJestIBedzieZawszeTeraz/src/SudokuView/ButtonPanel.java</file>
+            <file>file:/H:/SudokuNaszeJestIBedzieZawszeTeraz/src/SudokuModel/Game.java</file>
+            <file>file:/H:/SudokuNaszeJestIBedzieZawszeTeraz/src/SudokuModel/UpdateAction.java</file>
+            <file>file:/H:/SudokuNaszeJestIBedzieZawszeTeraz/src/SudokuView/SudokuPanel.java</file>
+            <file>file:/H:/SudokuNaszeJestIBedzieZawszeTeraz/src/SudokuController/ButtonController.java</file>
+            <file>file:/H:/SudokuNaszeJestIBedzieZawszeTeraz/src/SudokuView/Field.java</file>
+            <file>file:/H:/SudokuNaszeJestIBedzieZawszeTeraz/src/SudokuView/Sudoku.java</file>
+        </group>
     </open-files>
 </project-private>
