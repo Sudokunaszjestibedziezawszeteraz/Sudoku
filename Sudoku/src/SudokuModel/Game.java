@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Observable;
+//import SudokuView.ButtonPanel;
 
 /**
  * Ta klasa reprezentuje grę Sudoku. Zawiera rozwiązanie, wybór gracza,
@@ -30,13 +31,11 @@ public class Game extends Observable {
         check = new boolean[9][9];
         help = false;
     }
- 
     
-    /**
-     * Restartuje grę
-     */
     public void Restart() {
-     
+//        game = generateGame(copy(solution));
+//        game = RecreateGame;
+        
         for (int y = 0; y < 9; y++) {
             for (int x = 0; x < 9; x++)
                     game[y][x] = gamecopy[y][x];
@@ -66,6 +65,27 @@ public class Game extends Observable {
         
     }
 
+    /**
+     * Porównuje wybór gracza z tablicą odpowiedzi.
+     */
+    public void checkGame() {
+        selectedNumber = 0;
+        for (int y = 0; y < 9; y++) {
+            for (int x = 0; x < 9; x++)
+                check[y][x] = game[y][x] == solution[y][x];
+        }
+        setChanged();
+        notifyObservers(UpdateAction.CHECK);
+    }
+
+    /**
+     * Pomoc
+     */
+    public void setHelp(boolean help) {
+        this.help = help;
+        setChanged();
+        notifyObservers(UpdateAction.HELP);
+    }
 
     /**
      * Liczba wybrana przez gracza.
@@ -116,7 +136,7 @@ public class Game extends Observable {
     }
 
     /**
-     * Sprawdza poprawność wylosowanej liczby
+     * Sprawdza poprawność
      */
     public boolean isCheckValid(int x, int y) {
         return check[y][x];
@@ -145,7 +165,7 @@ public class Game extends Observable {
     }
 
     /**
-     * Sprawdza poprawność w kwadracie 3x3
+     * Sprawdza czy liczba pasuje do danej pozycji
      */
     private boolean isPossibleBlock(int[][] game, int x, int y, int number) {
         int x1 = x < 3 ? 0 : x < 6 ? 3 : 6;
@@ -204,6 +224,7 @@ public class Game extends Observable {
      * Generuje grę na podstawie rozwiązania
      */
     private int[][] generateGame(int[][] game) {
+    //    List<Integer> positions = new ArrayList<Integer>();
         for (int i = 0; i < 81; i++)
             positions.add(i);
         Collections.shuffle(positions);
@@ -215,18 +236,20 @@ public class Game extends Observable {
      *
      */
     private int[][] generateGame(int[][] game, List<Integer> positions) {
-
-        while (positions.size() > 0) {
+       // ButtonPanel BP = new ButtonPanel();
+       // int Diff = BP.getDifficulty();
+        while (positions.size() > 0) { //Poziom Trudności
             int position = positions.remove(0);
             int x = position % 9;
             int y = position / 9;
             int temp = game[y][x];
             game[y][x] = 0;
-
+//            gamecopy[y][x] = 0;
             
 
             if (!isValid(game)){
                 game[y][x] = temp;
+//                gamecopy[y][x] = temp;
         }
         }
 
@@ -236,7 +259,7 @@ public class Game extends Observable {
     
 
     /**
-     * Sprawdza poprawność wygenerowanej gry
+     * Sprawdza poprawność gry
      */
     private boolean isValid(int[][] game) {
         return isValid(game, 0, new int[] { 0 });

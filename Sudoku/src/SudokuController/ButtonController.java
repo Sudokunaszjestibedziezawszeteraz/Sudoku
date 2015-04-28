@@ -21,8 +21,12 @@ public class ButtonController implements ActionListener {
             game.newGame();
         else if (e.getActionCommand().equals("Wyczyść"))
             game.Restart();
+        else if (e.getActionCommand().equals("Sprawdź"))
+            game.checkGame();
         else if (e.getActionCommand().equals("Wyjście"))
             System.exit(0);
+        else if (e.getActionCommand().equals("Podpowiedź"))
+            game.setHelp(((JCheckBox)e.getSource()).isSelected());
         else
             game.setSelectedNumber(Integer.parseInt(e.getActionCommand()));
     }

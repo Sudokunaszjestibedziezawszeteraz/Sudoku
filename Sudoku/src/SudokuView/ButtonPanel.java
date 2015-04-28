@@ -26,24 +26,25 @@ public class ButtonPanel extends JPanel implements Observer {
     ButtonGroup bgNumbersC;          // Grupa przycisków C.
     JToggleButton[] btnNumbers;     // Przełącznik przycisków.
 
-    
-    public ButtonPanel() {          //Panel z przyciskami
+    public ButtonPanel() {
         super(new BorderLayout());
 
         JPanel pnlAlign = new JPanel();
         pnlAlign.setLayout(new BoxLayout(pnlAlign, BoxLayout.PAGE_AXIS));
         add(pnlAlign, BorderLayout.NORTH);
 
-        JPanel pnlSpace = new JPanel();
+                JPanel pnlSpace = new JPanel();
         pnlSpace.setLayout(new BoxLayout(pnlSpace, BoxLayout.PAGE_AXIS));
         pnlSpace.setBorder(BorderFactory.createEmptyBorder(41, 0, 0, 0));
         pnlAlign.add(pnlSpace);
+
         
         JPanel pnlOptions = new JPanel();
         pnlOptions.setLayout(new BoxLayout(pnlOptions, BoxLayout.PAGE_AXIS));
         pnlOptions.setBorder(BorderFactory.createTitledBorder(" Opcje "));
         pnlAlign.add(pnlOptions);
 
+        
         
         JPanel pnlOptionsA = new JPanel(new FlowLayout(FlowLayout.LEADING));
         pnlOptions.add(pnlOptionsA);
@@ -73,7 +74,6 @@ public class ButtonPanel extends JPanel implements Observer {
         pnlOptionsB.add(btnExit);
         
        
-
         
         
         JPanel pnlNumbers = new JPanel();
@@ -145,10 +145,11 @@ public class ButtonPanel extends JPanel implements Observer {
     public void setController(ButtonController buttonController) {
         btnNew.addActionListener(buttonController);
         btnRestart.addActionListener(buttonController);
+   //     cbDifficulty.addActionListener(buttonController);
         btnCheck.addActionListener(buttonController);
         btnExit.addActionListener(buttonController);
         cbHelp.addActionListener(buttonController);
         for (int i = 0; i < 9; i++)
-        btnNumbers[i].addActionListener(buttonController);
+            btnNumbers[i].addActionListener(buttonController);
     }
 }
