@@ -69,7 +69,7 @@ public class Game extends Observable {
      * Porównuje wybór gracza z tablicą odpowiedzi.
      */
     public void checkGame() {
-        selectedNumber = 0;
+        selectedNumber = -1;
         for (int y = 0; y < 9; y++) {
             for (int x = 0; x < 9; x++)
                 check[y][x] = game[y][x] == solution[y][x];
